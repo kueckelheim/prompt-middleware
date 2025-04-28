@@ -5,13 +5,9 @@ import { promises as fs } from "fs";
 import path from "path";
 
 async function loadContext() {
-  try {
-    const filePath = path.resolve(__dirname, "..", "context", "context.md");
-    return await fs.readFile(filePath, "utf-8");
-    // Do something with the markdown content, e.g., pass it to the prompt generator.
-  } catch (error) {
-    console.error("Error reading the markdown file:", error);
-  }
+  const filePath = path.resolve(__dirname, "..", "context", "context.md");
+  return await fs.readFile(filePath, "utf-8");
+  // Do something with the markdown content, e.g., pass it to the prompt generator.
 }
 
 const handler: vscode.ChatRequestHandler = async (
@@ -22,7 +18,15 @@ const handler: vscode.ChatRequestHandler = async (
 ): Promise<any> => {
   stream.progress("Refining your prompt...");
 
-  const contextMarkdown = await loadContext();
+  let contextMarkdown: string;
+  try {
+    contextMarkdown = await loadContext();
+  } catch (error) {
+    stream.markdown(
+      "Error reading the markdown file. Make sure that the file /context/context.md exists."
+    );
+    return;
+  }
 
   const refinedPrompt = `
 You are a prompt improvement assistant. Your task is to enhance a prompt by applying best practices from prompt engineering, focusing on clarity, specificity, context, and conciseness:
@@ -38,7 +42,6 @@ ${request.prompt}
 +++ end user prompt
 
 Only return the pure refined prompt without any additional text such that the user can copy and paste it directly. Do not include any heading or quotes, just the refined prompt.`;
-
 
   const response = await request.model.sendRequest([
     {
