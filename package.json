@@ -12,10 +12,13 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
+    "chatParticipants": [
       {
-        "command": "prompt-middleware.helloWorld",
-        "title": "Hello World"
+        "id": "prompt.middleware",
+        "name": "erik",
+        "fullName": "Erik",
+        "description": "A GitHub copilot wrapper to refine your prompts and includes context",
+        "isSticky": true
       }
     ]
   },
