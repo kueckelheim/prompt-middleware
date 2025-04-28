@@ -5,9 +5,14 @@ import { promises as fs } from "fs";
 import path from "path";
 
 async function loadContext() {
-  const filePath = path.resolve(__dirname, "..", "context", "context.md");
+  const workspaceFolders = vscode.workspace.workspaceFolders;
+  if (!workspaceFolders || workspaceFolders.length === 0) {
+    throw new Error("No workspace is open.");
+  }
+
+  const workspaceRoot = workspaceFolders[0].uri.fsPath;
+  const filePath = path.join(workspaceRoot, "context", "context.md");
   return await fs.readFile(filePath, "utf-8");
-  // Do something with the markdown content, e.g., pass it to the prompt generator.
 }
 
 const handler: vscode.ChatRequestHandler = async (
