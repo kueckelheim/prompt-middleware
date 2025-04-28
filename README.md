@@ -1,71 +1,34 @@
-# prompt-middleware README
+# prompt-middleware
 
-This is the README for your extension "prompt-middleware". After writing up a brief description, we recommend including the following sections.
+`prompt-middleware` is a simple Visual Studio Code extension that provides a chat participant in Copilot's Ask mode. It refines a given prompt using provided context stored in `/context/context.md` within your workspace folder.
 
-## Features
+![](./assets/demo.gif)
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## How it works
 
-For example if there is an image subfolder under your extension project workspace:
+- Open the VSCode GitHub Copilot chat interface.
+- Select Ask mode.
+- Type ```@refine [Your prompt that you want to refine]``` and send the message
+- Click the `Copy` button and use the refined prompt wherever you want (e.g., in Edit mode).
 
-\!\[feature X\]\(images/feature-x.png\)
+## Why
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+`prompt-middleware` allows you to specify your own guidelines to refine any prompt. This is useful if you do not want to repeatedly specify your desired tone, coding style, project context, or tech stack.
+
+## Use cases
+
+- **Project-Specific Context**: Automatically include project-specific details like coding standards, libraries, or frameworks.
+- **Team Collaboration**: Standardize prompts across a team to maintain consistency in communication with AI tools.
+- **Time-Saving**: Quickly generate refined prompts without manually rewriting them every time.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Ensure that the file `/context/context.md` exists in your project directory. This file should contain the guidelines to be included in the refined prompts. See the [example file](/context/context.md).
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
+This extension does not currently contribute any settings.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+TBD

@@ -1,8 +1,8 @@
 ## Project Details
 
-**Project Name**: prompt-middleware
-**Description**: A VSCode extension to provide a chat-participant that refines your prompts and includes context
-**Target Audience**: developers  
+- **Project Name**: prompt-middleware
+- **Description**: A VSCode extension to provide a chat-participant that refines your prompts and includes context
+- **Target Audience**: developers  
 
 ## Tech Stack
 
@@ -32,6 +32,7 @@
 - Use Arrow Functions: Prefer arrow functions for their simplicity and cleaner syntax.
 - Use **async/await**: Opt for async/await over callbacks or .then() for better readability in asynchronous code.
 - **Avoid Classes**: Prefer functions over classes unless absolutely necessary.
+- Use modern es6 programming standards and formatting
 
 ## Style and Tone
 

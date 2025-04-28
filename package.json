@@ -1,7 +1,11 @@
 {
   "name": "prompt-middleware",
   "displayName": "prompt middleware",
-  "description": "A GitHub copilot wrapper to refine your prompts and includes context",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kueckelheim/prompt-middleware"
+  },
+  "description": "A GitHub copilot chat-participant to refine your prompts and includes context",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.99.0"
