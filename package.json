@@ -12,11 +12,18 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "commands": [
+      {
+        "command": "prompt-middleware.copyToClipboard",
+        "title": "Copy refined prompt to clipboard",
+        "category": "Prompt Middleware"
+      }
+    ],
     "chatParticipants": [
       {
-        "id": "prompt.middleware",
-        "name": "erik",
-        "fullName": "Erik",
+        "id": "prompt-middleware.refine",
+        "name": "refine",
+        "fullName": "Refine",
         "description": "A GitHub copilot wrapper to refine your prompts and includes context",
         "isSticky": true
       }
