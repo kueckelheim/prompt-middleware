@@ -1,6 +1,18 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
+import { promises as fs } from "fs";
+import path from "path";
+
+async function loadContext() {
+  try {
+    const filePath = path.resolve(__dirname, "..", "context", "context.md");
+    return await fs.readFile(filePath, "utf-8");
+    // Do something with the markdown content, e.g., pass it to the prompt generator.
+  } catch (error) {
+    console.error("Error reading the markdown file:", error);
+  }
+}
 
 const handler: vscode.ChatRequestHandler = async (
   request: vscode.ChatRequest,
@@ -8,33 +20,25 @@ const handler: vscode.ChatRequestHandler = async (
   stream: vscode.ChatResponseStream,
   token: vscode.CancellationToken
 ): Promise<any> => {
-  // Step 1: Simulate "thinking"
   stream.progress("Refining your prompt...");
-  await new Promise((resolve) => setTimeout(resolve, 500));
 
-  // Step 2: Refine the prompt (simple example: prepend extra context)
+  const contextMarkdown = await loadContext();
+
   const refinedPrompt = `
-  Your task is to improve and structure the given user prompt in a way that ensures clear, precise, and actionable responses. Focus on the following:
+You are a prompt improvement assistant. Your task is to enhance a prompt by applying best practices from prompt engineering, focusing on clarity, specificity, context, and conciseness:
 
-Clarity: Make sure the intent is obvious and the task is well-defined.
+Also make sure to include the following guidelines in your new prompt (specifically mention them in the prompt if applicable):
++++ guidelines start
+${contextMarkdown}
++++ guidelines end
 
-Context: Include relevant background information and constraints.
-
-Details: Add details that will help guide the output toward the desired solution.
-
-Tone: Specify the desired tone or style (e.g., formal, concise, step-by-step).
-
-Examples: Provide examples or scenarios that could clarify the task.
-
-Output format: Mention how you want the answer structured (e.g., code, list, explanation).
-
-Original Prompt:
-
+Here's the prompt that needs refinement: 
++++ start user prompt
 ${request.prompt}
++++ end user prompt
 
-Additional Instructions:
-- only return the pure refined prompt without any additional text such that the user can copy and paste it directly
-- do not include any heading or quotes, just the refined prompt`;
+Only return the pure refined prompt without any additional text such that the user can copy and paste it directly. Do not include any heading or quotes, just the refined prompt.`;
+
 
   const response = await request.model.sendRequest([
     {
@@ -46,18 +50,17 @@ Additional Instructions:
 
   let fullResponseText = ""; // Collect the full response text
 
-  // Step 4: Stream the response
   for await (const chunk of response.stream) {
     const chunkText = (chunk as vscode.LanguageModelTextPart).value;
     stream.markdown(chunkText);
-    fullResponseText += chunkText; // Append each chunk to the full response
+    fullResponseText += chunkText;
   }
 
   stream.button({
     title: "Copy to Clipboard",
     command: "prompt-middleware.copyToClipboard",
     tooltip: "Copies the response to the clipboard",
-    arguments: [fullResponseText], // Pass the full response text
+    arguments: [fullResponseText],
   });
 };
 
