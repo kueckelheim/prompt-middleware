@@ -8,7 +8,7 @@
 
 - Open the VSCode GitHub Copilot chat interface.
 - Select Ask mode.
-- Type ```@refine [Your prompt that you want to refine]``` and send the message
+- Type `@refine [Your prompt that you want to refine]` and send the message
 - Click the `Copy` button and use the refined prompt wherever you want (e.g., in Edit mode).
 
 ## Why
@@ -32,3 +32,7 @@ This extension does not currently contribute any settings.
 ## Release Notes
 
 TBD
+
+## License
+
+prompt-middleware © 2025 by Erik Nogueira Kückelheim is licensed under Creative Commons Attribution-NonCommercial 4.0 International
