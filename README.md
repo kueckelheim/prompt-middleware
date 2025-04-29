@@ -6,6 +6,8 @@
 
 ## How it works
 
+- Create the `/context/prompt-guidelines.md` file and define your prompt guidelines (see [example](/context/prompt-guidelines.md) to get started).
+- Create the `/context/code-guidelines.md` file and define your coding guidelines (see [example](/context/code-guidelines.md) to get started).
 - Open the GitHub Copilot chat in VS Code.
 - Switch to Ask mode.
 - Type @refine [your prompt] and send the message.
@@ -24,6 +26,10 @@ With `prompt-middleware`, you can define your own prompt and code guidelines onc
 - **Team Collaboration**: Standardize prompts across a team to maintain consistency in communication with AI tools.
 - **Faster workflow**: Refine prompts with a single command instead of rewriting.
 
+## Installation
+
+You can install the `prompt-middleware` extension directly from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items/?itemName=kueckelheim.prompt-middleware)
+
 ## Requirements
 
 Your project should include these two files:
@@ -31,7 +37,7 @@ Your project should include these two files:
 - `/context/prompt-guidelines.md`
 - `/context/code-guidelines.md`
 
-See the [example](/context/code-guidelines.md) to get started.
+See [example](/context/code-guidelines.md) to get started.
 
 ## Extension Settings
 
