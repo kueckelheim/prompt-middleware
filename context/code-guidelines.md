@@ -33,6 +33,7 @@
 - Use **async/await**: Opt for async/await over callbacks or .then() for better readability in asynchronous code.
 - **Avoid Classes**: Prefer functions over classes unless absolutely necessary.
 - Use modern es6 programming standards and formatting
+- avoid overuse of external libraries, only use them if there is a clear benefit or a custom solution would take time
 
 ## Style and Tone
 
