@@ -5,7 +5,7 @@
     "type": "git",
     "url": "https://github.com/kueckelheim/prompt-middleware"
   },
-  "description": "A GitHub copilot chat-participant to refine your prompts and includes context",
+  "description": "A GitHub Copilot chat participant that refines your prompts and includes context",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.99.0"
