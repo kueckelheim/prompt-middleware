@@ -120,7 +120,10 @@ Only return the pure refined prompt without any additional text such that the us
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
   // Register the chat participant and its request handler
-  vscode.chat.createChatParticipant("prompt-middleware.refine", handler);
+  const refine = vscode.chat.createChatParticipant(
+    "prompt-middleware.refine",
+    handler
+  );
 
   // Register the command to copy the response to the clipboard
   context.subscriptions.push(
@@ -133,6 +136,12 @@ export function activate(context: vscode.ExtensionContext) {
         );
       }
     )
+  );
+
+  refine.iconPath = vscode.Uri.joinPath(
+    context.extensionUri,
+    "assets",
+    "refine.png"
   );
 }
 

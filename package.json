@@ -15,6 +15,7 @@
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
+  "icon": "./assets/refine.png",
   "contributes": {
     "commands": [
       {
