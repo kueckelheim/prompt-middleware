@@ -31,7 +31,7 @@ Your project should include these two files:
 - `/context/prompt-guidelines.md`
 - `/context/code-guidelines.md`
 
-See the [example](/context/code-guidelines) to get started.
+See the [example](/context/code-guidelines.md) to get started.
 
 ## Extension Settings
 
