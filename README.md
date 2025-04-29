@@ -1,52 +1,89 @@
 # prompt-middleware
 
-`prompt-middleware` is a simple Visual Studio Code extension that provides a chat participant in Copilot's Ask mode. It helps you refine prompts using maintainable context from `/context/prompt-guidelines.md` and `/context/code-guidelines.md`.
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/kueckelheim.prompt-middleware)](https://marketplace.visualstudio.com/items?itemName=kueckelheim.prompt-middleware)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/kueckelheim.prompt-middleware)](https://marketplace.visualstudio.com/items?itemName=kueckelheim.prompt-middleware)
+[![Rating](https://img.shields.io/visual-studio-marketplace/r/kueckelheim.prompt-middleware)](https://marketplace.visualstudio.com/items?itemName=kueckelheim.prompt-middleware)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+
+`prompt-middleware` is a lightweight VS Code extension that helps you refine prompts in Copilot Chat using consistent, project-specific guidelines.
 
 ![](./assets/demo.gif)
 
-## How it works
+---
 
-- Create the `/context/prompt-guidelines.md` file and define your prompt guidelines (see [example](/context/prompt-guidelines.md) to get started).
-- Create the `/context/code-guidelines.md` file and define your coding guidelines (see [example](/context/code-guidelines.md) to get started).
-- Open the GitHub Copilot chat in VS Code.
-- Switch to Ask mode.
-- Type @refine [your prompt] and send the message.
-- The extension improves your prompt using your guidelines.
-- It clears the chat history and inserts the refined prompt into a new chat input.
-- It also attaches your code-guidelines.md file as context.
-- You can edit the refined prompt or press Enter to run it — either in Ask mode or Edit mode to apply changes directly in your editor.
+## ✨ Features
 
-## Why
+- Define prompt and code style guidelines in version-controlled Markdown files.
+- Auto-refine Copilot prompts by typing `@refine [your prompt]` in Ask mode.
+- Automatically attaches your guidelines to the refined prompt as context.
+- Clears previous messages for a clean, focused chat session.
 
-With `prompt-middleware`, you can define your own prompt and code guidelines once — and reuse them automatically. This avoids repeating your tone, style, or tech stack every time. Your guidelines live in version-controlled files you can update over time.
+---
 
-## Use cases
+## 🛠️ Setup
 
-- **Project-Specific Context**: Automatically include project-specific details like coding standards, libraries, or frameworks.
-- **Team Collaboration**: Standardize prompts across a team to maintain consistency in communication with AI tools.
-- **Faster workflow**: Refine prompts with a single command instead of rewriting.
+1. Add these two files to your project:
+   - `/context/prompt-guidelines.md`
+   - `/context/code-guidelines.md`
+2. Open GitHub Copilot Chat in VS Code.
+3. Switch to **Ask mode**.
+4. Type a message like:  
+   `@refine create a function to validate email input`
+5. The extension will:
+   - Rewrite your prompt based on your guidelines.
+   - Reset the chat with the improved prompt prefilled.
+   - Attach your `code-guidelines.md` as context.
 
-## Installation
+[→ See examples](./context)
 
-You can install the `prompt-middleware` extension directly from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items/?itemName=kueckelheim.prompt-middleware)
+---
 
-## Requirements
+## 💡 Why use it?
 
-Your project should include these two files:
+- Avoid repeating your tone, style, or tech stack in every prompt.
+- Enforce consistent standards across a project or team.
+- Speed up your workflow with reusable, editable guidelines.
+
+---
+
+## 📦 Install
+
+[Install from the VS Code Marketplace →](https://marketplace.visualstudio.com/items?itemName=kueckelheim.prompt-middleware)
+
+---
+
+## ⚙️ Extension Settings
+
+This extension has no configuration options at the moment.
+
+---
+
+## 📋 Requirements
+
+Your project must include:
 
 - `/context/prompt-guidelines.md`
 - `/context/code-guidelines.md`
 
-See [example](/context/code-guidelines.md) to get started.
+---
 
-## Extension Settings
+## 📄 License
 
-This extension does not currently contribute any settings.
+**prompt-middleware** © 2025 by Erik Nogueira Kückelheim  
+Licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
 
-## Release Notes
+---
 
-TBD
+## 🤝 Contributing
 
-## License
+Contributions are welcome!
 
-prompt-middleware © 2025 by Erik Nogueira Kückelheim is licensed under Creative Commons Attribution-NonCommercial 4.0 International
+If you'd like to improve this extension, follow these steps:
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/my-feature`)
+3. Make your changes
+4. Commit and push (`git commit -am 'Add my feature' && git push origin feature/my-feature`)
+5. Open a pull request
+
+Please keep changes focused and include a short explanation of what you did. Feel free to open an issue if you want to discuss a feature or bug first.
