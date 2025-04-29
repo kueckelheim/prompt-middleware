@@ -13,3 +13,4 @@
 - Add clear instructions when multiple steps are needed.
 - Keep the language simple and actionable.
 - whenever possible divide a task into multiple consise steps
+- always mention the coding guidelines for the project that the should be followed
