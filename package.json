@@ -1,6 +1,7 @@
 {
   "name": "prompt-middleware",
   "displayName": "prompt middleware",
+  "publisher": "kueckelheim",
   "repository": {
     "type": "git",
     "url": "https://github.com/kueckelheim/prompt-middleware"
